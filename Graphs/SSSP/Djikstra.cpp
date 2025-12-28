@@ -13,65 +13,75 @@ n 为图上点的数目, m 为图上边的数目;
 
 */
 template<class T>
-struct Djikstra {
-    using PII = pair<T, int>;
+struct Dijkstra {
+    struct Edge {
+        int v;
+        T w;
+    };
+    
     int n;
-    vector<vector<pair<int, T>>> g;
+    const T INF = numeric_limits<T>::max(); 
+    vector<vector<Edge>> g;
     vector<T> dis;
     vector<bool> vis;
-    priority_queue<PII, vector<PII>, greater<PII>> pq;
 
-    Djikstra() {}
-    Djikstra(int _n) {
+    Dijkstra() {}
+    Dijkstra(int _n) {
         init(_n);
     }
+
     void init(int _n) {
         n = _n;
-        g.resize(_n + 1);
-        dis.resize(_n + 1, numeric_limits<T>::max());
-        vis.resize(_n + 1, false);
-    }
-    //加边
-    void addEdge(int u, int v, int w) {
-        g[u].emplace_back(v, w);
+        g.assign(n + 1, vector<Edge>());
+        dis.assign(n + 1, INF);
+        vis.assign(n + 1, false);
     }
 
-    //运行
+    void addEdge(int u, int v, T w) {
+        g[u].push_back({v, w});
+    }
+
     void work(int st) {
-        pq.emplace(0, st);
+        priority_queue<pair<T, int>, vector<pair<T, int>>, greater<pair<T, int>>> pq;
         dis[st] = 0;
+        pq.push({0, st});
         while (!pq.empty()) {
-            int u = pq.top().second;
+            auto [d, u] = pq.top();
             pq.pop();
+
             if (vis[u]) continue;
-            vis[u] = 1;
-            for (auto [v, w] : g[u]) {
-                if (dis[v] > dis[u] + w) {
-                    dis[v] = dis[u] + w;
-                    pq.emplace(dis[v], v);
+            vis[u] = true;
+
+            for (auto& e : g[u]) {
+                if (dis[e.v] > dis[u] + e.w) {
+                    dis[e.v] = dis[u] + e.w;
+                    pq.push({dis[e.v], e.v});
                 }
             }
         }
     }
-
+    
     T getDis(int t) {
         return dis[t];
     }
 };
 
+/*
+https://www.luogu.com.cn/problem/P4779
+*/
 void solve() {
     int n, m, s;
     cin >> n >> m >> s;
-    Djikstra<long long> Dji(n);
+    Dijkstra<long long> Dijk(n);
 
     for (int i = 1; i <= m; i++) {
         int u, v, w;
         cin >> u >> v >> w;
-        Dji.addEdge(u, v, w);
+        Dijk.addEdge(u, v, w);
     }
-    Dji.work(s);
+    Dijk.work(s);
     for (int i = 1; i <= n; i++) {
-        cout << Dji.getDis(i) << " ";
+        cout << Dijk.getDis(i) << " ";
     }
     cout << "\n";
 }
