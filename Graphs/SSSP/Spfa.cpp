@@ -46,7 +46,7 @@ struct Spfa {
     }
 
     // SPFA
-    // 返回值: true 表示发现负环，false 表示正常
+    // 返回值: true 表示可以从发现负环，false 表示正常
     bool work(int st) {
         // 重置状态
         dis.assign(n + 1, INF);
