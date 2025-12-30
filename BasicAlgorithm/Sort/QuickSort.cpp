@@ -5,6 +5,11 @@
 
 using namespace std;
 
+/*
+快速排序的最优时间复杂度和平均时间复杂度为 O(nlog⁡n)
+最坏时间复杂度为O(n^2)。
+
+*/
 
 template<class T>
 void QuickSort(vector<T>& a, int low, int high) {
