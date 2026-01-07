@@ -1,4 +1,7 @@
-
+/**   
+ * 欧拉函数（求解单个数的欧拉函数）
+ * O(sqrt(n))
+**/
 int phi(int n) {
     int res = n;
     for (int i = 2; i * i <= n; i++) {

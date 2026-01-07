@@ -1,3 +1,5 @@
+
+
 #include <vector>
 std::vector<int> minp, primes;
 
