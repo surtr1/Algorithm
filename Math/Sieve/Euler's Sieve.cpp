@@ -1,4 +1,6 @@
-
+/** 欧拉筛
+ *  O(N)
+**/
 
 #include <vector>
 std::vector<int> minp, primes;
