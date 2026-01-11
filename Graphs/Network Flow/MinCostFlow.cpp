@@ -3,7 +3,9 @@
  * 实现: SPFA 初始化势能 + Dijkstra 多路增广
  * * 适用场景: 
  * 1. 边的费用 (cost) 可以为负数。
- * 2. 图中不能存在负权环 (Negative Cycle)。
+ * 2. 图中不能存在负权环。
+ * V: 节点数量 (Vertices)
+ * E: 边数量 (Edges)
  * * 时间复杂度: O(F * E log V) 其中 F 为最大流量
 **/
 
@@ -146,9 +148,7 @@ struct MinCostFlow {
                     h[i] += dis[i];
                 }
             }
-            
             // 3. 回溯路径，寻找瓶颈容量 (aug)
-            // 注意这里使用 T 的最大值，防止 long long 溢出问题
             T aug = std::numeric_limits<T>::max();
             for (int i = t; i != s; i = e[pre[i] ^ 1].to) {
                 aug = std::min(aug, e[pre[i]].cap);
@@ -175,7 +175,7 @@ struct MinCostFlow {
         T flow; // 实际流量
     };
     
-    // 获取图的最终状态 (通常用于输出方案)
+    // 用于输出方案和调试
     std::vector<Edge> edges() {
         std::vector<Edge> a;
         // 遍历所有正向边 (步长为2)

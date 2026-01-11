@@ -1,6 +1,9 @@
 /** 最大流
  * 基于 Dinic 算法实现
  * 包含了当前弧优化
+ * V: 节点数量 (Vertices)
+ * E: 边数量 (Edges)
+ * 理论最坏时间复杂度 O(V^2 E)
 **/
 
 #include <vector>
