@@ -66,4 +66,9 @@ struct Comb {
         if (n < m || m < 0) return 0;
         return fac(n) * invfac(m) % MOD * invfac(n - m) % MOD;
     }
+
+    long long P(int n, int m) {
+        if (n < m || m < 0) return 0;
+        return fac(n) * inv(n - m) % MOD;
+    }
 } comb;
