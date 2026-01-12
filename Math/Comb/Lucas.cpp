@@ -54,7 +54,6 @@ struct Lucas {
         if (m > n || m < 0) return 0;
         return fac[n] * invFac[m] % p * invFac[n - m] % p;
     }
-
     // Lucas 定理递归求解
     // 时间复杂度: O(log_p(n))
     long long solve(long long n, long long m) {
