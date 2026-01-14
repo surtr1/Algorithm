@@ -20,7 +20,7 @@ end:   当前堆的结束绝对下标 (即 r 或 i-1)
 parent: 当前要下沉的节点的绝对下标
 */
 template<class T> 
-void sift_down(vector<T> & a, int l, int r, int parent) {
+void siftDown(vector<T> & a, int l, int r, int parent) {
     
     int child = l + 2 * (parent - l) + 1;
     while (child <= r) {
@@ -42,13 +42,13 @@ void HeapSort(vector<T> & a, int l, int r) {
     int sz = r - l + 1;
     for (int i = sz / 2 - 1; i >= 0; i--) {
         int parent = l + i; //偏移量 + 起点 就是真实值
-        sift_down(a, l, r, parent);
+        siftDown(a, l, r, parent);
     }
     //先将第一个元素和已经排好的元素前一位做交换，
     //再重新调整（刚调整的元素之前的元素），直到排序完毕
     for (int i = r; i > l; i--) {
         std::swap(a[i], a[l]);
-        sift_down(a, l, i - 1, l); //剩余区间 [l, i - 1]
+        siftDown(a, l, i - 1, l); //剩余区间 [l, i - 1]
     }
 
 }

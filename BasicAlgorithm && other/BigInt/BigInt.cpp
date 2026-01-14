@@ -228,8 +228,7 @@ struct BigInt {
         vll c = karatsubaMultiply(a, b);
          BigInt res;
         res.sign = sign * v.sign;
-        for (int i = 0, carry = 0; i < (int)c.size(); i++)
-        {
+        for (int i = 0, carry = 0; i < (int)c.size(); i++) {
             long long cur = c[i] + carry;
             res.a.push_back((int)(cur % 10000));
             carry = (int)(cur / 10000);
