@@ -11,8 +11,7 @@
 using namespace std;
 
 
-auto KMP = [&](string s, string t) -> void
-{
+auto KMP = [&](string s, string t) -> void {
     int n = s.size(), m = t.size();
     vector<int> nxt(m + 1);
     s = '-' + s;

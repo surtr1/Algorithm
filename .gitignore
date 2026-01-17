@@ -8,7 +8,9 @@
 /字符串
 /其它
 /杂类
-
+/DataStructure/SegmentTree
+/DataStructure/Compress.cpp
+/DataStructure/Fenwick2D.cpp
 
 # 操作系统
 .DS_Store
