@@ -11,7 +11,6 @@
 /DataStructure/SegmentTree/RangeMul && Add.cpp
 /DataStructure/SegmentTree/LazySegmentTree.cpp
 /DataStructure/SegmentTree/MaIntervalSum.cpp
-/DataStructure/SegmentTree/RangeGcd.cpp
 .DS_Store
 Thumbs.db
 
