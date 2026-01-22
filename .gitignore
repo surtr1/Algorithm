@@ -10,7 +10,6 @@
 /杂类
 /DataStructure/SegmentTree/RangeMul && Add.cpp
 /DataStructure/SegmentTree/LazySegmentTree.cpp
-/DataStructure/SegmentTree/MaIntervalSum.cpp
 .DS_Store
 Thumbs.db
 
