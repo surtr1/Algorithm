@@ -9,6 +9,9 @@
 /其它
 /杂类
 /DataStructure/SegmentTree/LazySegmentTree.cpp
+/DataStructure/ODTree.cpp
+/DataStructure/STable.cpp
+/DataStructure/LinearBasis
 .DS_Store
 Thumbs.db
 
