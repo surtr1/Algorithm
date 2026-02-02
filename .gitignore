@@ -8,6 +8,12 @@
 /字符串
 /其它
 /杂类
+/Math/Comb
+/Math/CRT
+/Math/Block.cpp
+/Math/Min_25.cpp
+/Math/InclusionExclusion.cpp
+/Math/Divisor.cpp
 
 
 .DS_Store
